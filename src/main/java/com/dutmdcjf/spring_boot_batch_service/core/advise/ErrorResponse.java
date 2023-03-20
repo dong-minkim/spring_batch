@@ -1,0 +1,37 @@
+package com.dutmdcjf.spring_boot_batch_service.core.advise;
+
+import com.dutmdcjf.spring_boot_batch_service.core.advise.code.ErrorCode;
+import com.dutmdcjf.spring_boot_batch_service.core.advise.exception.AdviseBaseException;
+import lombok.Builder;
+import lombok.Data;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.time.LocalDateTime;
+
+@Data
+@Builder
+public class ErrorResponse {
+    private final LocalDateTime timestamp = LocalDateTime.now();
+    private final int status;
+    private final String error;
+    private final String message;
+
+    public static ResponseEntity<ErrorResponse> make(AdviseBaseException e) {
+        ErrorCode errorCode = e.getErrorCode();
+        return ResponseEntity
+                .status(errorCode.getHttpStatus())
+                .body(ErrorResponse.builder()
+                        .status(errorCode.getHttpStatus().value())
+                        .error(errorCode.getHttpStatus().name())
+                        .build());
+    }
+
+    public static ResponseEntity<ErrorResponse> makeInternal(Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ErrorResponse.builder()
+                        .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                        .error(e.getMessage())
+                        .build());
+    }
+}
