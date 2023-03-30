@@ -2,12 +2,12 @@ package com.dutmdcjf.spring_boot_batch_service.core.advice.exception;
 
 import com.dutmdcjf.spring_boot_batch_service.core.advice.code.ErrorCode;
 
-public class SchedulerException extends AdviseBaseException {
-    public SchedulerException(ErrorCode errorCode) {
+public class SchedulerCustomException extends AdviceBaseException {
+    public SchedulerCustomException(ErrorCode errorCode) {
         super(errorCode);
     }
 
-    public SchedulerException(ErrorCode errorCode, String message) {
+    public SchedulerCustomException(ErrorCode errorCode, String message) {
         super(errorCode, message);
     }
 }

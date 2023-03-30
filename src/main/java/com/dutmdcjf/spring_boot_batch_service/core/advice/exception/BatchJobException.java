@@ -2,7 +2,7 @@ package com.dutmdcjf.spring_boot_batch_service.core.advice.exception;
 
 import com.dutmdcjf.spring_boot_batch_service.core.advice.code.ErrorCode;
 
-public class BatchJobException extends AdviseBaseException {
+public class BatchJobException extends AdviceBaseException {
     public BatchJobException(ErrorCode errorCode) {
         super(errorCode);
     }

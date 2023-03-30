@@ -1,8 +1,8 @@
 package com.dutmdcjf.spring_boot_batch_service.core.service;
 
 import com.dutmdcjf.spring_boot_batch_service.core.advice.code.ErrorCode;
-import com.dutmdcjf.spring_boot_batch_service.core.advice.exception.SchedulerException;
-import com.dutmdcjf.spring_boot_batch_service.core.scheduler.job.RunJob;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.exception.SchedulerCustomException;
+import com.dutmdcjf.spring_boot_batch_service.core.scheduler.job.;
 import com.dutmdcjf.spring_boot_batch_service.dto.SchedulerDetail;
 import com.dutmdcjf.spring_boot_batch_service.dto.request.RequestSchedulerJob;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +32,7 @@ public class SchedulerService {
     public void removeScheduler(String jobName, String jobGroup) throws Exception {
         JobKey jobKey = new JobKey(jobName, jobGroup);
         if (!scheduler.checkExists(jobKey)) {
-            throw new SchedulerException(ErrorCode.NOT_FOUND_SCHEDULER);
+            throw new SchedulerCustomException(ErrorCode.NOT_FOUND_SCHEDULER);
         }
 
         scheduler.deleteJob(jobKey);
@@ -41,7 +41,7 @@ public class SchedulerService {
     public void modifyScheduler(RequestSchedulerJob requestSchedulerJob) throws Exception {
         JobKey jobKey = new JobKey(requestSchedulerJob.getName(), JOB_GROUP);
         if (!scheduler.checkExists(jobKey)) {
-            throw new SchedulerException(ErrorCode.NOT_FOUND_SCHEDULER);
+            throw new SchedulerCustomException(ErrorCode.NOT_FOUND_SCHEDULER);
         }
 
         scheduler.deleteJob(jobKey);
@@ -62,7 +62,7 @@ public class SchedulerService {
     public SchedulerDetail schedulerDetail(String jobName, String jobGroup) throws Exception {
         JobKey jobKey = new JobKey(jobName, jobGroup);
         if (!scheduler.checkExists(jobKey)) {
-            throw new SchedulerException(ErrorCode.NOT_FOUND_SCHEDULER);
+            throw new SchedulerCustomException(ErrorCode.NOT_FOUND_SCHEDULER);
         }
 
         return getJobDetail(jobKey);
@@ -97,7 +97,7 @@ public class SchedulerService {
                 .withIdentity(jobKey)
                 .withDescription(requestSchedulerJob.getDescription())
                 .setJobData(jobDataMap)
-                .ofType(RunJob.class)
+                .ofType(.class)
                 .build();
 
         Trigger trigger = TriggerBuilder.newTrigger().withSchedule(CronScheduleBuilder.cronSchedule(requestSchedulerJob.getCronSchedule())).build();
