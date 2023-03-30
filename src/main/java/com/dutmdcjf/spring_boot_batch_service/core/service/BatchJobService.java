@@ -1,7 +1,7 @@
 package com.dutmdcjf.spring_boot_batch_service.core.service;
 
-import com.dutmdcjf.spring_boot_batch_service.core.advise.code.ErrorCode;
-import com.dutmdcjf.spring_boot_batch_service.core.advise.exception.BatchJobException;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.code.ErrorCode;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.exception.BatchJobException;
 import com.dutmdcjf.spring_boot_batch_service.dto.BatchJob;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

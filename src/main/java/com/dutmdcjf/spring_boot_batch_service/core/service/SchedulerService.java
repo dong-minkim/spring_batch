@@ -1,7 +1,7 @@
 package com.dutmdcjf.spring_boot_batch_service.core.service;
 
-import com.dutmdcjf.spring_boot_batch_service.core.advise.code.ErrorCode;
-import com.dutmdcjf.spring_boot_batch_service.core.advise.exception.SchedulerException;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.code.ErrorCode;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.exception.SchedulerException;
 import com.dutmdcjf.spring_boot_batch_service.core.scheduler.job.RunJob;
 import com.dutmdcjf.spring_boot_batch_service.dto.SchedulerDetail;
 import com.dutmdcjf.spring_boot_batch_service.dto.request.RequestSchedulerJob;

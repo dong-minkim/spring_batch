@@ -1,7 +1,7 @@
-package com.dutmdcjf.spring_boot_batch_service.core.advise;
+package com.dutmdcjf.spring_boot_batch_service.core.advice;
 
-import com.dutmdcjf.spring_boot_batch_service.core.advise.code.ErrorCode;
-import com.dutmdcjf.spring_boot_batch_service.core.advise.exception.AdviseBaseException;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.code.ErrorCode;
+import com.dutmdcjf.spring_boot_batch_service.core.advice.exception.AdviseBaseException;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
